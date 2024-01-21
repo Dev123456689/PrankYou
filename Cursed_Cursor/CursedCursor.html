@@ -91,7 +91,7 @@
             }
           }
 
-          cursor.show().css({
+          cursor.css({
             left: (nonInteractievCursorPos.left % viewportWidth),
             top: (nonInteractievCursorPos.top % viewportHeight)
             // display: 'block'
@@ -115,6 +115,7 @@
           }).appendTo('body');
 
           fakeCursors.push(newFakeCursor);
+          newFakeCursor.show();
         }
         fakeCursorsadded = true;
         UpdateNonInteractiveFakeCursorPosition();
@@ -215,8 +216,13 @@
                 element.style.display = 'none';
               });
 
+              console.log("secondchallenegecleared");
+
               document.querySelector(".surrender").style.display = "block";
               $('#interactivefakeCursor').hide();
+              fakeCursors.forEach(function (cursor, index) {
+                cursor.hide();
+              })
             }
             UpdateNonInteractiveFakeCursorPosition();
           }
