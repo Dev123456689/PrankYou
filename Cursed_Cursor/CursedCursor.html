@@ -1,4 +1,25 @@
-<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Cursed Cursor</title><style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#fff;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease;z-index:2}.centered-button.hover-effect{background-color:#0063cc}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}#Eyes{position:fixed;display:none;top:7%;left:50%;transform:translateX(-50%);width:50vw;height:auto;z-index:0}#BigText{position:fixed;display:none;top:75%;left:50%;transform:translate(-50%,-50%);font-size:3.2vw;font-family:Impact,'Arial Narrow Bold',sans-serif}#Surrender{position:fixed;display:none;font-size:4.6vw;font-family:Impact,'Arial Narrow Bold',sans-serif;color:#202020;top:50%;left:50%;transform:translate(-50%,-50%)}</style><body class=body><button class="canhide centered-button">Click Me</button> <img class="canhide eyes"id=Eyes src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursed_Cursor/Eyes.jpg><p class="canhide bigtext"id=BigText>Oh, I see. But you can't click it again.<p class=surrender id=Surrender>I Surrender and now those cursors will not trouble you.</p><img class="canhide interactivefakeCursor"id=interactivefakeCursor src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png style=display:none><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script><script>$(document).ready(function () {
+<!doctypehtml>
+<html lang=en>
+
+<head>
+  <meta charset=UTF-8>
+  <meta content="width=device-width,initial-scale=1"name=viewport>
+  <title>Cursed Cursor</title>
+  <style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#fff;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease;z-index:2}.centered-button.hover-effect{background-color:#0063cc}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}#Eyes{position:fixed;display:none;top:7%;left:50%;transform:translateX(-50%);width:50vw;height:auto;z-index:0}#BigText{position:fixed;display:none;top:75%;left:50%;transform:translate(-50%,-50%);font-size:3.2vw;font-family:Impact,'Arial Narrow Bold',sans-serif}#Surrender{position:fixed;display:none;font-size:4.6vw;font-family:Impact,'Arial Narrow Bold',sans-serif;color:#202020;top:50%;left:50%;transform:translate(-50%,-50%)}</style>
+</head>
+
+<body class=body>
+  <button class="canhide centered-button">Click Me</button>
+  
+  <img class="canhide eyes"id=Eyes src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursed_Cursor/Eyes.jpg>
+  <p class="canhide bigtext"id=BigText>Oh, I see. But you can't click it again.</p>
+  <p class=surrender id=Surrender>I Surrender and now those cursors will not trouble you.</p>
+  <img class="canhide interactivefakeCursor"id=interactivefakeCursor src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png style=display:none> 
+  
+
+  <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+  <script>
+    $(document).ready(function () {
       var leftoffset = 0;
       var topoffset = 0;
 
@@ -79,22 +100,22 @@
       }
 
       function AddFakeCursors() {
-        // if (fakeCursorsadded) {
-        //   return;
-        // }
-        // for (var i = 0; i < numCursors; i++) {
-        //   randomOffsets.push({
-        //     left: (Math.random() * window.innerWidth),
-        //     top: (Math.random() * window.innerHeight)
-        //   })
+        if (fakeCursorsadded) {
+          return;
+        }
+        for (var i = 0; i < numCursors; i++) {
+          randomOffsets.push({
+            left: (Math.random() * window.innerWidth),
+            top: (Math.random() * window.innerHeight)
+          })
 
-        //   var newFakeCursor = $('<img>', {
-        //     class: 'noninteractivefakeCursor canhide',
-        //     src: 'https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png',
-        //   }).appendTo('body');
+          var newFakeCursor = $('<img>', {
+            class: 'noninteractivefakeCursor canhide',
+            src: 'https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png',
+          }).appendTo('body');
 
-        //   fakeCursors.push(newFakeCursor);
-        // }
+          fakeCursors.push(newFakeCursor);
+        }
         fakeCursorsadded = true;
         UpdateNonInteractiveFakeCursorPosition();
       }
@@ -201,4 +222,9 @@
           }
         }
       });
-    });</script><script>$(document).ready(function(){var t,e=window.devicePixelRatio;e<=1.5?t=1:1.5<e&&e<=2?t=1.5:2<e&&(t=2),$("#fakeCursor").css({width:function(){return this.naturalWidth*t+"px"},height:function(){return this.naturalHeight*t+"px"}}),$(document).mousemove(function(t){$("#fakeCursor").show().css({left:t.pageX+10,top:t.pageY+10})})})</script>
+    });
+  </script>
+  
+  <script>$(document).ready(function(){var t,e=window.devicePixelRatio;e<=1.5?t=1:1.5<e&&e<=2?t=1.5:2<e&&(t=2),$("#fakeCursor").css({width:function(){return this.naturalWidth*t+"px"},height:function(){return this.naturalHeight*t+"px"}}),$(document).mousemove(function(t){$("#fakeCursor").show().css({left:t.pageX+10,top:t.pageY+10})})})</script>
+
+
