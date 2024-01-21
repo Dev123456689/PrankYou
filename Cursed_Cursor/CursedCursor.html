@@ -5,7 +5,7 @@
   <meta charset=UTF-8>
   <meta content="width=device-width,initial-scale=1"name=viewport>
   <title>Cursed Cursor</title>
-  <style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#fff;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease;z-index:2}.centered-button.hover-effect{background-color:#0063cc}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}#Eyes{position:fixed;display:none;top:7%;left:50%;transform:translateX(-50%);width:50vw;height:auto;z-index:0}#BigText{position:fixed;display:none;top:75%;left:50%;transform:translate(-50%,-50%);font-size:3.2vw;font-family:Impact,'Arial Narrow Bold',sans-serif}#Surrender{position:fixed;display:none;font-size:4.6vw;font-family:Impact,'Arial Narrow Bold',sans-serif;color:#202020;top:50%;left:50%;transform:translate(-50%,-50%)}</style>
+  <style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#fff;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease;z-index:2}.centered-button.hover-effect{background-color:#0055af}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}#Eyes{position:fixed;display:none;top:7%;left:50%;transform:translateX(-50%);width:50vw;height:auto;z-index:0}#BigText{position:fixed;display:none;top:75%;left:50%;transform:translate(-50%,-50%);font-size:3.2vw;font-family:Impact,'Arial Narrow Bold',sans-serif}#Surrender{position:fixed;display:none;font-size:4.6vw;font-family:Impact,'Arial Narrow Bold',sans-serif;color:#202020;top:50%;left:50%;transform:translate(-50%,-50%)}</style>
 </head>
 
 <body class=body>
@@ -138,12 +138,12 @@
           // Apply hover effect
           $('.centered-button').addClass('hover-effect');
           if (fakeCursorsadded) {
-            if (firstchallenegecleared) {
-              $('.centered-button').text(_SorryText);
-            }
-            else {
-              $('.centered-button').text(_AfraidText);
-            }
+            // if (firstchallenegecleared) {
+            //   $('.centered-button').text(_SorryText);
+            // }
+            // else {
+            //   $('.centered-button').text(_AfraidText);
+            // }
           }
         } else {
           // Remove hover effect
@@ -215,8 +215,6 @@
               elementscanhide.forEach(element => {
                 element.style.display = 'none';
               });
-
-              console.log("secondchallenegecleared");
 
               document.querySelector(".surrender").style.display = "block";
               $('#interactivefakeCursor').hide();
