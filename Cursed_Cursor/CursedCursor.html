@@ -1,1 +1,204 @@
-<!doctypehtml> <html lang=en> <head> <meta charset=UTF-8> <meta content="width=device-width,initial-scale=1"name=viewport> <title>Responsive Centered Button Page with Fake Cursor</title> <style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#f7f7f7;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease}.centered-button.hover-effect{background-color:#004792}.centered-button.click-effect{background-color:green}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}</style> </head> <body> <button class=centered-button>Click Me</button> <img id=interactivefakeCursor src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png style=display:none> <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script> <script>$(document).ready(function(){var a=0,c=0,n=[],r=[],o=!1,i=window.innerWidth-17,f=window.innerHeight-23;function s(){o&&n.forEach(function(e,t){var n=event.pageX+a+r[t].left,o=event.pageY+c+r[t].top;e.show().css({left:n%i,top:o%f})})}function t(){var e=event.pageX+a,t=event.pageY+c,n=$(".centered-button").offset(),o=$(".centered-button").outerWidth(),r=$(".centered-button").outerHeight();e>=n.left&&e<=n.left+o&&t>=n.top&&t<=n.top+r?$(".centered-button").addClass("hover-effect"):($(".centered-button").removeClass("hover-effect"),$(".centered-button").removeClass("click-effect"))}$(document).mousemove(function(e){$("#interactivefakeCursor").show().css({left:(e.pageX+a)%i,top:(e.pageY+c)%f}),s(),t()}),$(document).click(function(){$(".centered-button").hasClass("hover-effect")&&($(".centered-button").addClass("click-effect"),a=60*Math.random()+40,c=60*Math.random()+40,.5<Math.random()&&(a=-a),.5<Math.random()&&(c=-c),$("#interactivefakeCursor").css({left:event.pageX+a,top:event.pageY+c}),t(),o?s():function(){if(!o){for(var e=0;e<20;e++){r.push({left:Math.random()*window.innerWidth,top:Math.random()*window.innerHeight});var t=$("<img>",{class:"noninteractivefakeCursor",src:"https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png"}).appendTo("body");n.push(t)}o=!0,s()}}())})})</script> <script>$(document).ready(function(){var t,e=window.devicePixelRatio;e<=1.5?t=1:1.5<e&&e<=2?t=1.5:2<e&&(t=2),$("#fakeCursor").css({width:function(){return this.naturalWidth*t+"px"},height:function(){return this.naturalHeight*t+"px"}}),$(document).mousemove(function(t){$("#fakeCursor").show().css({left:t.pageX+10,top:t.pageY+10})})})</script> 
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Cursed Cursor</title><style>body,html{height:100%;margin:0;display:flex;justify-content:center;align-items:center;background-color:#fff;cursor:none}.centered-button{padding:1vw 2vw;font-size:1.5vw;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:none;border:none;background-color:#007bff;color:#fff;border-radius:.5vw;transition:background-color .3s ease;z-index:2}.centered-button.hover-effect{background-color:#0063cc}.noninteractivefakeCursor{position:absolute;z-index:999}#interactivefakeCursor{position:absolute;z-index:1000}#noninteractivefakeCursor{position:absolute;z-index:999}#Eyes{position:fixed;display:none;top:7%;left:50%;transform:translateX(-50%);width:50vw;height:auto;z-index:0}#BigText{position:fixed;display:none;top:75%;left:50%;transform:translate(-50%,-50%);font-size:3.2vw;font-family:Impact,'Arial Narrow Bold',sans-serif}#Surrender{position:fixed;display:none;font-size:4.6vw;font-family:Impact,'Arial Narrow Bold',sans-serif;color:#202020;top:50%;left:50%;transform:translate(-50%,-50%)}</style><body class=body><button class="canhide centered-button">Click Me</button> <img class="canhide eyes"id=Eyes src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursed_Cursor/Eyes.jpg><p class="canhide bigtext"id=BigText>Oh, I see. But you can't click it again.<p class=surrender id=Surrender>I Surrender and now those cursors will not trouble you.</p><img class="canhide interactivefakeCursor"id=interactivefakeCursor src=https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png style=display:none><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script><script>$(document).ready(function () {
+      var leftoffset = 0;
+      var topoffset = 0;
+
+      var _LaughingText = "Click Me  😂";
+      var _AfraidText = "No Don't  😨";
+      var _SorryText = "I'm Sorry 😭"
+
+      var fakecursorwidth = 17;
+      var fakecursorheight = 23;
+      var ReverseDirectionsMainCursors = { left: false, top: false };
+
+      var numCursors = 50;
+      var fakeCursors = [];
+      var randomOffsets = [];
+      var ReverseDirectionsFakeCursors = [];
+
+      var fakeCursorsadded = false;
+      var firstchallenegecleared = false;
+
+      // AddFakeCursors();
+
+      var viewportWidth = window.innerWidth - (fakecursorwidth);
+      var viewportHeight = window.innerHeight - (fakecursorheight);
+
+      $('.interactivefakeCursor').show();
+
+      $(document).mousemove(function (e) {
+
+        var InteractievCursorPos = {
+          left: e.pageX + leftoffset,
+          top: e.pageY + topoffset
+        }
+        if (firstchallenegecleared) {
+          if (ReverseDirectionsMainCursors.left) {
+            InteractievCursorPos.left = viewportWidth - ((e.pageX + leftoffset) % viewportWidth)
+          }
+          if (ReverseDirectionsMainCursors.top) {
+            InteractievCursorPos.top = viewportHeight - ((e.pageY + topoffset) % viewportHeight)
+          }
+        }
+
+        $('#interactivefakeCursor').css({
+          left: (InteractievCursorPos.left % viewportWidth),
+          top: (InteractievCursorPos.top % viewportHeight)
+        });
+
+        UpdateNonInteractiveFakeCursorPosition();
+
+        CheckInteractivefakeCursorHover();
+      });
+
+      function UpdateNonInteractiveFakeCursorPosition() {
+        if (!fakeCursorsadded) {
+          return;
+        }
+        fakeCursors.forEach(function (cursor, index) {
+
+          var nonInteractievCursorPos = {
+            left: event.pageX + leftoffset + randomOffsets[index].left,
+            top: event.pageY + topoffset + randomOffsets[index].top
+          }
+          if (firstchallenegecleared) {
+            if (ReverseDirectionsFakeCursors[index].left) {
+              nonInteractievCursorPos.left = viewportWidth - ((event.pageX + leftoffset + randomOffsets[index].left) % viewportWidth)
+            }
+
+            if (ReverseDirectionsFakeCursors[index].top) {
+              nonInteractievCursorPos.top = viewportHeight - ((event.pageY + topoffset + randomOffsets[index].top) % viewportHeight)
+            }
+          }
+
+          cursor.show().css({
+            left: (nonInteractievCursorPos.left % viewportWidth),
+            top: (nonInteractievCursorPos.top % viewportHeight)
+            // display: 'block'
+          })
+        })
+      }
+
+      function AddFakeCursors() {
+        // if (fakeCursorsadded) {
+        //   return;
+        // }
+        // for (var i = 0; i < numCursors; i++) {
+        //   randomOffsets.push({
+        //     left: (Math.random() * window.innerWidth),
+        //     top: (Math.random() * window.innerHeight)
+        //   })
+
+        //   var newFakeCursor = $('<img>', {
+        //     class: 'noninteractivefakeCursor canhide',
+        //     src: 'https://raw.githubusercontent.com/Dev123456689/PrankYou/main/Cursor%20arrow%20Aero.png',
+        //   }).appendTo('body');
+
+        //   fakeCursors.push(newFakeCursor);
+        // }
+        fakeCursorsadded = true;
+        UpdateNonInteractiveFakeCursorPosition();
+      }
+
+      function CheckInteractivefakeCursorHover() {
+        var fakeCursorPos = {
+          left: event.pageX + leftoffset,
+          top: event.pageY + topoffset
+        }
+        var buttonPos = $('.centered-button').offset();
+        var buttonWidth = $('.centered-button').outerWidth();
+        var buttonHeight = $('.centered-button').outerHeight();
+
+        // Check if the fake cursor is within the button boundaries
+        if (fakeCursorPos.left >= buttonPos.left
+          && fakeCursorPos.left <= buttonPos.left + buttonWidth
+          && fakeCursorPos.top >= buttonPos.top
+          && fakeCursorPos.top <= buttonPos.top + buttonHeight) {
+          // Apply hover effect
+          $('.centered-button').addClass('hover-effect');
+          if (fakeCursorsadded) {
+            if (firstchallenegecleared) {
+              $('.centered-button').text(_SorryText);
+            }
+            else {
+              $('.centered-button').text(_AfraidText);
+            }
+          }
+        } else {
+          // Remove hover effect
+          $('.centered-button').removeClass('hover-effect');
+          if (fakeCursorsadded) {
+            $('.centered-button').text(_LaughingText);
+          }
+        }
+      }
+
+      function FillReverseDirections() {
+        for (var i = 0; i < numCursors; i++) {
+          ReverseLeft = false;
+          ReverseTop = false;
+          if (Math.random() > 0.5) {
+            ReverseLeft = true;
+          }
+          if (Math.random() > 0.5) {
+            ReverseTop = true;
+          }
+          ReverseDirectionsFakeCursors.push({ left: ReverseLeft, top: ReverseTop });
+        }
+
+        if (Math.random() > 0.5) {
+          ReverseDirectionsMainCursors.left = true;
+        }
+        if (Math.random() > 0.5) {
+          ReverseDirectionsMainCursors.top = true;
+        }
+      }
+
+      $(document).click(function () {
+        if ($('.centered-button').hasClass('hover-effect')) {
+          maximumRangeLeft = Math.min(event.pageX, window.innerWidth - event.pageX);
+          maximumRangeTop = Math.min(event.pageY, window.innerHeight - event.pageY);
+
+          leftoffset = Math.random() * maximumRangeLeft * 3 / 6 + $('.centered-button').outerWidth(),
+            topoffset = Math.random() * maximumRangeTop * 3 / 6 + $('.centered-button').outerHeight();  // Random number between 60 and 110
+          if (Math.random() > 0.5) {
+            leftoffset = -leftoffset;
+          }
+          if (Math.random() > 0.5) {
+            topoffset = -topoffset;
+          }
+
+          // Update the position of the fake cursor with the new offsets
+          $('#interactivefakeCursor').css({
+            left: event.pageX + leftoffset,
+            top: event.pageY + topoffset
+          });
+
+          CheckInteractivefakeCursorHover();
+          if (!fakeCursorsadded) {
+            AddFakeCursors();
+            // Change the text of the button to "Click me again"
+            $('.centered-button').text(_LaughingText);
+          }
+          else {
+            if (!firstchallenegecleared) {
+              FillReverseDirections();
+              firstchallenegecleared = true;
+              console.log("firstchallenegecleared");
+              document.querySelector('.eyes').style.display = "block";
+              document.querySelector('.bigtext').style.display = 'block';
+              UpdateNonInteractiveFakeCursorPosition();
+            }
+            else {
+              var elementscanhide = document.querySelectorAll('.canhide');
+              elementscanhide.forEach(element => {
+                element.style.display = 'none';
+              });
+
+              document.querySelector(".surrender").style.display = "block";
+              $('#interactivefakeCursor').hide();
+            }
+            UpdateNonInteractiveFakeCursorPosition();
+          }
+        }
+      });
+    });</script><script>$(document).ready(function(){var t,e=window.devicePixelRatio;e<=1.5?t=1:1.5<e&&e<=2?t=1.5:2<e&&(t=2),$("#fakeCursor").css({width:function(){return this.naturalWidth*t+"px"},height:function(){return this.naturalHeight*t+"px"}}),$(document).mousemove(function(t){$("#fakeCursor").show().css({left:t.pageX+10,top:t.pageY+10})})})</script>
